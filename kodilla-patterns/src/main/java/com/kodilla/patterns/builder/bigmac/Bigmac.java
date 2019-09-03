@@ -37,7 +37,7 @@ public class Bigmac {
         private List<String> ingredients = new ArrayList<>();
 
         public BigmacBuilder bun(String bun) {
-            if(bun == ROLL || bun == SESAME) {
+            if(bun.equals(ROLL) || bun.equals(SESAME)) {
                 this.bun = bun;
                 return this;
             } else {
