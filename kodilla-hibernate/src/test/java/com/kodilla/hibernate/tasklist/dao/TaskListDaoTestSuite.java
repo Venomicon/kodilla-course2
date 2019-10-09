@@ -39,7 +39,7 @@ public class TaskListDaoTestSuite {
         Assert.assertTrue(readTask.isPresent());
 
         //Cleanup
-        taskListDao.deleteByListName(listName);
+        taskListDao.deleteAll();
     }
 
     @Test
@@ -65,7 +65,7 @@ public class TaskListDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
-        taskListDao.deleteById(id);
+        taskListDao.deleteAll();
     }
 
     @Test
@@ -112,7 +112,8 @@ public class TaskListDaoTestSuite {
             Assert.assertEquals(3, enoughTimeTasks.size());
         } finally {
             //CleanUp
-            taskListDao.deleteById(id);
+            taskListDao.deleteAll();
+            taskDao.deleteAll();
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.kodilla.hibernate.invoice;
 
 import com.kodilla.hibernate.invoice.dao.InvoiceDao;
+import com.kodilla.hibernate.invoice.dao.ItemDao;
+import com.kodilla.hibernate.invoice.dao.ProductDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +17,10 @@ import java.math.BigDecimal;
 public class InvoiceTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
+    @Autowired
+    private ItemDao itemDao;
+    @Autowired
+    private ProductDao productDao;
 
     @Test
     public void testInvoiceDaoSave() {
@@ -37,15 +43,21 @@ public class InvoiceTestSuite {
         //When
         invoiceDao.save(invoice1);
         invoiceDao.save(invoice2);
+        productDao.save(product1);
+        productDao.save(product2);
+        itemDao.save(item1);
+        itemDao.save(item2);
+        itemDao.save(item3);
         int id1 = invoice1.getId();
-        int size2 = invoice2.getItems().size();
+        int id2 = item2.getInvoice().getId();
 
         //Then
         Assert.assertNotEquals(0, id1);
-        Assert.assertTrue(size2 > 0);
+        Assert.assertTrue(id2 == id1);
 
         //CleanUp
-        //invoiceDao.deleteById(id1);
-        //invoiceDao.deleteById(invoice2.getId());
+        invoiceDao.deleteAll();
+        productDao.deleteAll();
+        itemDao.deleteAll();
     }
 }

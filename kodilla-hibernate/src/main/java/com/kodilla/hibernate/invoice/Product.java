@@ -54,4 +54,8 @@ public class Product {
     public void setItem(Item item) {
         this.items = items;
     }
+
+    public void setItems(List items) {
+        this.items = items;
+    }
 }
