@@ -37,7 +37,7 @@ public class Bigmac {
         private List<String> ingredients = new ArrayList<>();
 
         public BigmacBuilder bun(String bun) {
-            if(bun.equals(ROLL) || bun.equals(SESAME)) {
+            if (bun.equals(ROLL) || bun.equals(SESAME)) {
                 this.bun = bun;
                 return this;
             } else {
@@ -46,7 +46,7 @@ public class Bigmac {
         }
 
         public BigmacBuilder burgers(int burgers) {
-            if(burgers >= 0) {
+            if (burgers >= 0) {
                 this.burgers = burgers;
                 return this;
             } else {
@@ -55,7 +55,7 @@ public class Bigmac {
         }
 
         public BigmacBuilder sauce(String sauce) {
-            if(sauce.equals(STANDARD) || sauce .equals(THOUSAND) || sauce.equals(BBQ)) {
+            if (sauce.equals(STANDARD) || sauce.equals(THOUSAND) || sauce.equals(BBQ)) {
                 this.sauce = sauce;
                 return this;
             } else {
@@ -64,8 +64,8 @@ public class Bigmac {
         }
 
         public BigmacBuilder ingredient(String ingredient) {
-            if(ingredient.equals(SALAD) || ingredient.equals(ONION) || ingredient.equals(BACON) || ingredient.equals(PICKLE)
-                || ingredient.equals(CHILI) || ingredient.equals(MUSHROOM) || ingredient.equals(SHRIMP) || ingredient.equals(CHEESE)) {
+            if (ingredient.equals(SALAD) || ingredient.equals(ONION) || ingredient.equals(BACON) || ingredient.equals(PICKLE)
+                    || ingredient.equals(CHILI) || ingredient.equals(MUSHROOM) || ingredient.equals(SHRIMP) || ingredient.equals(CHEESE)) {
                 this.ingredients.add(ingredient);
                 return this;
             } else {

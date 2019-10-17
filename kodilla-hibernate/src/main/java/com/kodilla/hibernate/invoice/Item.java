@@ -82,5 +82,7 @@ public class Item {
         this.value = value;
     }
 
-    public void setInvoice(Invoice invoice) { this.invoice = invoice; }
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
 }

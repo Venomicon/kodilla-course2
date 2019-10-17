@@ -29,7 +29,7 @@ public class DbManagerTestSuite {
 
         //Then
         int counter = 0;
-        while(rs.next()) {
+        while (rs.next()) {
             System.out.println(rs.getInt("ID") + ", " +
                     rs.getString("FIRSTNAME") + ", " +
                     rs.getString("LASTNAME"));
@@ -55,7 +55,7 @@ public class DbManagerTestSuite {
 
         //Then
         int counter = 0;
-        while(rs.next()) {
+        while (rs.next()) {
             System.out.println(rs.getString("FIRSTNAME") + ", " +
                     rs.getString("LASTNAME") + ", " +
                     rs.getInt("POSTS_NUMBER"));

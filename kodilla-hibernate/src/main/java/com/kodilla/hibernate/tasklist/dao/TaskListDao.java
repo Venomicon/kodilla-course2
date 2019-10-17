@@ -11,5 +11,6 @@ import java.util.Optional;
 @Repository
 public interface TaskListDao extends CrudRepository<TaskList, Integer> {
     Optional<TaskList> findByListName(String listName);
+
     Optional<TaskList> deleteByListName(String listName);
 }

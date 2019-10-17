@@ -11,13 +11,13 @@ public class LibraryTestSuite {
     public void testGetBooks() {
         //Given
         Library library = new Library("Library 1");
-        Book book1 = new Book("SPECIAL BOOK", "John Kowalski", LocalDate.of(1990,6,25));
+        Book book1 = new Book("SPECIAL BOOK", "John Kowalski", LocalDate.of(1990, 6, 25));
         library.getBooks().add(book1);
-        IntStream.iterate(2, n -> n+1)
+        IntStream.iterate(2, n -> n + 1)
                 .limit(4)
-                .forEach(n -> library.getBooks().add(new Book("Book " + n, "John Kowalski", LocalDate.of(1990,5,25))));
+                .forEach(n -> library.getBooks().add(new Book("Book " + n, "John Kowalski", LocalDate.of(1990, 5, 25))));
 
-        Library library2= null;
+        Library library2 = null;
         try {
             library2 = library.shallowCopy();
             library2.setName("Library 2");
