@@ -21,7 +21,7 @@ public class CompanyFacade {
     CompanyDao companyDao;
 
     public List<Employee> findByExtractOfLastName(String extract) {
-         List<Employee> theList = employeeDao.retrieveByExtractOfLastName(extract);
+         List<Employee> theList = employeeDao.retrieveByExtractOfLastName("%"+extract+"%");
          if (theList.size() > 0) {
              LOGGER.info("Names containing" + extract + ": ");
              return  theList;
@@ -32,7 +32,7 @@ public class CompanyFacade {
     }
 
     public List<Company> findByExtractOfCompany(String extract) {
-        List<Company> theList = companyDao.retrieveCompaniesByExtract(extract);
+        List<Company> theList = companyDao.retrieveCompaniesByExtract("%"+extract+"%");
         if (theList.size() > 0) {
             LOGGER.info("Companies containing" + extract + ": ");
             return  theList;

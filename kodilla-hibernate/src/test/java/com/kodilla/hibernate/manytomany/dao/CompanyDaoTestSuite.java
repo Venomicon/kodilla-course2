@@ -130,8 +130,8 @@ public class CompanyDaoTestSuite {
         companyDao.save(company3);
 
         //When
-        List employeeList = companyFacade.findByExtractOfLastName("%kow%");
-        List companyList = companyFacade.findByExtractOfCompany("%coc%");
+        List employeeList = companyFacade.findByExtractOfLastName("kow");
+        List companyList = companyFacade.findByExtractOfCompany("coc");
 
         //Then
         Assert.assertEquals(2, employeeList.size());
