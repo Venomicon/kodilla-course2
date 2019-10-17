@@ -8,6 +8,10 @@ import java.util.List;
 @NamedQuery(
         name = "Employee.retrieveByLastName",
         query = "FROM Employee WHERE lastName = :LASTNAME")
+@NamedQuery(
+        name = "Employee.retrieveByExtractOfLastName",
+        query = "FROM Employee WHERE lastName LIKE :EXT"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public final class Employee {

@@ -11,6 +11,10 @@ import java.util.List;
                 "WHERE SUBSTRING(COMPANY_NAME, '1', '3') LIKE :ZNAKI",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.retrieveCompaniesByExtract",
+        query = "FROM Company WHERE name LIKE :EXT"
+)
 @Entity
 @Table(name = "COMPANIES")
 public final class Company {

@@ -2,6 +2,7 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import com.kodilla.hibernate.manytomany.facade.CompanyFacade;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +19,8 @@ public class CompanyDaoTestSuite {
     CompanyDao companyDao;
     @Autowired
     EmployeeDao employeeDao;
+    @Autowired
+    CompanyFacade companyFacade;
 
     @Test
     public void testSaveManyToMany() {
@@ -96,6 +99,43 @@ public class CompanyDaoTestSuite {
         //Then
         Assert.assertEquals(1, list1.size());
         Assert.assertEquals(2, list2.size());
+
+        //Cleanup
+        companyDao.deleteAll();
+        employeeDao.deleteAll();
+    }
+
+    @Test
+    public void testRetrieveByExtract() {
+        //Given
+        Employee emp1 = new Employee("Jan", "Kowalski");
+        Employee emp2 = new Employee("Mateusz", "Kowal");
+        Employee emp3 = new Employee("Anna", "Nowak");
+        Company company1 = new Company("CocaCola");
+        Company company2 = new Company("Bayer");
+        Company company3 = new Company("CocoChanel");
+
+        company1.getEmployees().add(emp1);
+        company2.getEmployees().add(emp2);
+        company3.getEmployees().add(emp3);
+        emp1.getCompanies().add(company1);
+        emp2.getCompanies().add(company2);
+        emp3.getCompanies().add(company3);
+
+        employeeDao.save(emp1);
+        employeeDao.save(emp2);
+        employeeDao.save(emp3);
+        companyDao.save(company1);
+        companyDao.save(company2);
+        companyDao.save(company3);
+
+        //When
+        List employeeList = companyFacade.findByExtractOfLastName("%kow%");
+        List companyList = companyFacade.findByExtractOfCompany("%coc%");
+
+        //Then
+        Assert.assertEquals(2, employeeList.size());
+        Assert.assertEquals(2, companyList.size());
 
         //Cleanup
         companyDao.deleteAll();
