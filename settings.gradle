@@ -5,4 +5,5 @@ include 'kodilla-jdbc'
 include 'kodilla-patterns-replay'
 include 'kodilla-patterns-2'
 include 'kodilla-patterns-new'
+include 'encryptor'
 
