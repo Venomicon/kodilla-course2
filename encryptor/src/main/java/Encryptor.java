@@ -34,7 +34,7 @@ public class Encryptor {
             System.out.println("Symbols and/or diacritical signs detected");
             System.out.println("Unable to send encrypted message");
         }
-        System.out.println("\n" + encrypted + "\n");
+        System.out.println("\nEncrypted using " + key.getName() + "\n" + encrypted + "\n");
         return encrypted;
     }
 

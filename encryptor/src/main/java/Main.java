@@ -1,7 +1,13 @@
+import java.util.Map;
+
 public class Main {
     public static void main (String[] args) {
-        Key key = new Key("key1");
-        key.generateKey();
+        KeyGenerator keyGenerator = new KeyGenerator();
+        Key key = keyGenerator.generateKey("key1");
+
+        for (Map.Entry entry : key.getKeyMap().entrySet()) {
+            System.out.println(entry);
+        }
 
         Encryptor encryptor = new Encryptor();
         encryptor.setKey(key);

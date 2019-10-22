@@ -27,11 +27,11 @@ public class Decryptor {
                     }
                 }
             }
-            System.out.println(result+"\n");
+            System.out.println("Decrypted using " + keyName + "\n" + result+"\n");
             return result;
         } else {
             System.out.println("Incorrect key\n");
-            return null;
+            return message;
         }
     }
 }
