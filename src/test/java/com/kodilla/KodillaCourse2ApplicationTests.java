@@ -11,6 +11,4 @@ public class KodillaCourse2ApplicationTests {
     @Test
     public void contextLoads() {
     }
-
-
 }
