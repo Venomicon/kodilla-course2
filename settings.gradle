@@ -4,7 +4,5 @@ include 'kodilla-hibernate'
 include 'kodilla-jdbc'
 include 'kodilla-patterns-replay'
 include 'kodilla-patterns-24'
-include 'encryptor'
 include 'encoder-2'
-include 'encryptor'
 
